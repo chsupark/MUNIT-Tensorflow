@@ -1,7 +1,7 @@
 import tensorflow as tf
 from tensorflow.contrib import slim
-from scipy import misc
 import os, random
+import imageio
 import numpy as np
 
 # https://people.eecs.berkeley.edu/~taesung_park/CycleGAN/datasets/
@@ -58,7 +58,7 @@ def inverse_transform(images):
     return (images+1.) / 2
 
 def imsave(images, size, path):
-    return misc.imsave(path, merge(images, size))
+    return imageio.imwrite(path, merge(images, size))
 
 def merge(images, size):
     h, w = images.shape[1], images.shape[2]
